@@ -30,7 +30,7 @@ jobs:
     - name: Install dependencies
       run: |
         source .ci/ubuntu_ci.sh
-        install_kivy_test_wheel_run_pip_deps
+        install_kivy_test_wheel_run_pip_deps dev
     - name: Create wheel
       run: |
         source .ci/ubuntu_ci.sh
@@ -72,12 +72,12 @@ jobs:
         source .ci/ubuntu_ci.sh
         source .ci/osx_versions.sh
         source .ci/osx_ci.sh
-        install_kivy_test_run_sys_deps
-        install_kivy_test_run_pip_deps
+        install_kivy_test_run_sys_deps dev
+        install_kivy_test_run_pip_deps dev
     - name: Install Kivy
       run: |
         source .ci/ubuntu_ci.sh
-        install_kivy
+        install_kivy dev
     - name: Make wheels
       run: |
         source .ci/osx_versions.sh
@@ -154,11 +154,11 @@ jobs:
       - name: Install test dependencies
         run: |
           source .ci/ubuntu_ci.sh
-          install_kivy_test_wheel_run_pip_deps
+          install_kivy_test_wheel_run_pip_deps dev
       - name: Install Kivy wheel
         run: |
           source .ci/ubuntu_ci.sh
-          install_kivy_wheel
+          install_kivy_wheel dev
       - uses: actions/download-artifact@v2
         with:
           name: osx_examples_wheel
@@ -166,7 +166,7 @@ jobs:
       - name: Install kivy-examples wheel
         run: |
           source .ci/ubuntu_ci.sh
-          install_kivy_examples_wheel
+          install_kivy_examples_wheel dev
       - name: Test Kivy wheel
         run: |
           source .ci/ubuntu_ci.sh
@@ -202,9 +202,9 @@ jobs:
           source .ci/ubuntu_ci.sh
           source .ci/osx_versions.sh
           source .ci/osx_ci.sh
-          install_kivy_test_run_sys_deps
+          install_kivy_test_run_sys_deps dev
           install_platypus
-          install_kivy_test_run_pip_deps
+          install_kivy_test_run_pip_deps dev
       - name: Make app bundle
         run: |
           py_version=$(python3 -c "import platform; print(platform.python_version())")
@@ -270,8 +270,8 @@ jobs:
           source .ci/osx_ci.sh
           source .ci/ubuntu_ci.sh
           activate_osx_app_venv
-          install_kivy_test_wheel_run_pip_deps
-          install_kivy_examples_wheel
+          install_kivy_test_wheel_run_pip_deps dev
+          install_kivy_examples_wheel dev
       - name: Test Kivy app
         run: |
           source .ci/osx_ci.sh

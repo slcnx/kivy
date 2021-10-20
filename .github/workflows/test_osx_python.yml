@@ -35,12 +35,12 @@ jobs:
         source .ci/ubuntu_ci.sh
         source .ci/osx_versions.sh
         source .ci/osx_ci.sh
-        install_kivy_test_run_sys_deps
-        install_kivy_test_run_pip_deps
+        install_kivy_test_run_sys_deps dev
+        install_kivy_test_run_pip_deps dev
     - name: Install Kivy
       run: |
         source .ci/ubuntu_ci.sh
-        install_kivy
+        install_kivy dev
     - name: Test Kivy
       run: |
         source .ci/ubuntu_ci.sh
